@@ -10,7 +10,7 @@ const Contact = () => {
         <h1 className="font-lora text-5xl text-center font-semibold mb-8 ">
           Contact
           <div className="flex items-center justify-center">
-            <img src="../public/line.svg" alt="line" />
+            <img src="/public/line.svg" alt="line" />
           </div>
         </h1>
 
@@ -18,7 +18,7 @@ const Contact = () => {
           <Forms />
 
           <img
-            src="../public/mailDesign.svg"
+            src="/public/mailDesign.svg"
             alt="mailDesign"
             className="hidden lg:block"
           />

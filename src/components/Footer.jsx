@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="flex gap-4 justify-center mb-4">
           <div className="flex items-center justify-center bg-back_secundary rounded-xl h-11 w-11">
             <a href="https://github.com/saviovnn">
-              <img src="../public/icons/github.svg" alt="github" />
+              <img src="/public/icons/github.svg" alt="github" />
             </a>
           </div>
           <div className="flex items-center justify-center bg-back_secundary rounded-xl h-11 w-11">
@@ -15,12 +15,12 @@ const Footer = () => {
           </div>
           <div className="flex items-center justify-center bg-back_secundary rounded-xl h-11 w-11">
             <a href="https://www.linkedin.com/in/savio-vianna-217705201/">
-              <img src="../public/icons/linkedin.svg" alt="linkedin" />
+              <img src="/public/icons/linkedin.svg" alt="linkedin" />
             </a>
           </div>
         </div>
         <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-normal flex gap-1 items-center justify-center">
-          <img src="../public/c.svg" alt="c" className="h-4 " />
+          <img src="/public/c.svg" alt="c" className="h-4 " />
           Copyright, Savio Vianna 2024, All rights reserved.
         </p>
       </div>
