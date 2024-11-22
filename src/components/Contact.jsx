@@ -18,7 +18,7 @@ const Contact = () => {
           <Forms />
 
           <img
-            src="/public/mailDesign.svg"
+            src="assets/mailDesign.svg"
             alt="mailDesign"
             className="hidden lg:block"
           />
