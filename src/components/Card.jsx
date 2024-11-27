@@ -1,8 +1,8 @@
-// Card.jsx
+import PropTypes from "prop-types";
+
 const Card = ({ title, img, icon1, icon2, icon3, link, rep }) => {
   return (
     <div className="transform scale-90 lg:scale-100">
-      {" "}
       <div className="w-full max-w-[22rem] h-auto lg:max-w-[24rem] lg:h-[24rem] rounded-xl bg-gradient-to-b from-primary to-secondary transition-all duration-1000 drop-shadow-2xl items-center transform hover:scale-105 pb-8">
         <p className="text-white items-center pt-4 w-full flex justify-center font-lora font-semibold text-xl lg:text-2xl">
           {title}
@@ -12,7 +12,6 @@ const Card = ({ title, img, icon1, icon2, icon3, link, rep }) => {
           <img src={img} alt="img" className="rounded-xl" />
         </div>
         <div className="flex gap-3 justify-start ml-8 mt-4">
-          {" "}
           <div className="flex items-center justify-center bg-back_secundary rounded-2xl h-10 w-10 lg:h-11 lg:w-11">
             <img src={icon1} alt="vite" />
           </div>
@@ -24,7 +23,12 @@ const Card = ({ title, img, icon1, icon2, icon3, link, rep }) => {
           </div>
         </div>
         <div className="flex justify-between mx-8 mt-4 ">
-          <a href={link} className="cursor-pointer">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer"
+          >
             <div className="flex items-center bg-back_secundary w-28 h-12 lg:w-32 lg:h-14 rounded-xl">
               <img
                 src="../icons/demo.svg"
@@ -36,7 +40,12 @@ const Card = ({ title, img, icon1, icon2, icon3, link, rep }) => {
               </h3>
             </div>
           </a>
-          <a href={rep} className="cursor-pointer">
+          <a
+            href={rep}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer"
+          >
             <div className="flex items-center bg-back_secundary w-28 h-12 lg:w-32 lg:h-14 rounded-xl">
               <img
                 src="../icons/github.svg"
@@ -52,6 +61,16 @@ const Card = ({ title, img, icon1, icon2, icon3, link, rep }) => {
       </div>
     </div>
   );
+};
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  icon1: PropTypes.string.isRequired,
+  icon2: PropTypes.string.isRequired,
+  icon3: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  rep: PropTypes.string.isRequired,
 };
 
 export default Card;

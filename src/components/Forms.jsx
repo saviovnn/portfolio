@@ -1,25 +1,66 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import emailjs from "@emailjs/browser";
+import { GlobalContext } from "../components/GlobalContext";
 
 const Forms = () => {
+  const { language } = useContext(GlobalContext);
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [isSent, setIsSent] = useState(false);
   const [errors, setErrors] = useState({});
+  const [title, setTitle] = useState("");
   const form = useRef();
+
+  const translations = {
+    en: {
+      leaveMessage: "Leave us a message",
+      namePlaceholder: "Name",
+      emailPlaceholder: "Email",
+      messagePlaceholder: "Message",
+      sendButton: "Send",
+      sendingButton: "Sending...",
+    },
+    pt: {
+      leaveMessage: "Deixe-nos uma mensagem",
+      namePlaceholder: "Nome",
+      emailPlaceholder: "Email",
+      messagePlaceholder: "Mensagem",
+      sendButton: "Enviar",
+      sendingButton: "Enviando...",
+    },
+  };
+
+  useEffect(() => {
+    const typeText = (newText, setFunction) => {
+      let index = 0;
+      const typingEffect = () => {
+        setFunction(newText.slice(0, index));
+        index++;
+        if (index <= newText.length) {
+          setTimeout(typingEffect, 80);
+        }
+      };
+      typingEffect();
+    };
+
+    setTitle("");
+    typeText(translations[language].leaveMessage, setTitle);
+  }, [language]);
 
   const validateForm = () => {
     let formErrors = {};
 
     if (!name.trim()) {
-      formErrors.name = "Name is required";
+      formErrors.name = translations[language].namePlaceholder + " is required";
     }
     if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) {
-      formErrors.email = "Valid email is required";
+      formErrors.email =
+        translations[language].emailPlaceholder + " is required";
     }
     if (!message.trim()) {
-      formErrors.message = "Message is required";
+      formErrors.message =
+        translations[language].messagePlaceholder + " is required";
     }
 
     setErrors(formErrors);
@@ -75,7 +116,7 @@ const Forms = () => {
   return (
     <div className="grid grid-flow-row gap-4 p-4 max-w-lg mx-auto w-full px-8 md:px-12 lg:px-16">
       <h3 className="font-rob font-normal text-xl w-full text-center md:text-start">
-        Leave us a message
+        {title}
       </h3>
       <form
         ref={form}
@@ -87,7 +128,7 @@ const Forms = () => {
             htmlFor="to_name"
             className="text-sm font-medium text-primary mb-1"
           >
-            Name
+            {translations[language].namePlaceholder}
           </label>
           <input
             type="text"
@@ -95,7 +136,9 @@ const Forms = () => {
             id="to_name"
             value={name}
             onChange={(e) => handleInputChange(e, "name")}
-            placeholder={errors.name ? errors.name : "Your Name"}
+            placeholder={
+              errors.name ? errors.name : translations[language].namePlaceholder
+            }
             className={`w-full border-2 p-3 rounded-md focus:outline-none ${
               errors.name
                 ? "border-red-500 placeholder-red-500"
@@ -109,7 +152,7 @@ const Forms = () => {
             htmlFor="from_name"
             className="text-sm font-medium text-primary mb-1"
           >
-            Email
+            {translations[language].emailPlaceholder}
           </label>
           <input
             type="email"
@@ -117,7 +160,11 @@ const Forms = () => {
             id="from_name"
             value={email}
             onChange={(e) => handleInputChange(e, "email")}
-            placeholder={errors.email ? errors.email : "Your Email"}
+            placeholder={
+              errors.email
+                ? errors.email
+                : translations[language].emailPlaceholder
+            }
             className={`w-full border-2 p-3 rounded-md focus:outline-none ${
               errors.email
                 ? "border-red-500 placeholder-red-500"
@@ -131,14 +178,18 @@ const Forms = () => {
             htmlFor="message"
             className="text-sm font-medium text-primary mb-1"
           >
-            Message
+            {translations[language].messagePlaceholder}
           </label>
           <textarea
             id="message"
             name="message"
             value={message}
             onChange={(e) => handleInputChange(e, "message")}
-            placeholder={errors.message ? errors.message : "Your Message"}
+            placeholder={
+              errors.message
+                ? errors.message
+                : translations[language].messagePlaceholder
+            }
             rows={5}
             className={`w-full border-2 p-3 rounded-md focus:outline-none resize-y ${
               errors.message
@@ -154,7 +205,9 @@ const Forms = () => {
             isSent ? "animate-pulse" : ""
           }`}
         >
-          {isSent ? "Sending..." : "Send"}
+          {isSent
+            ? translations[language].sendingButton
+            : translations[language].sendButton}
         </button>
       </form>
     </div>
