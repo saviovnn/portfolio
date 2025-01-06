@@ -22,7 +22,7 @@ const Footer = () => {
         setFunction(newText.slice(0, index));
         index++;
         if (index <= newText.length) {
-          setTimeout(typingEffect, 60);
+          setTimeout(typingEffect, 55);
         }
       };
       typingEffect();

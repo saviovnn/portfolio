@@ -34,7 +34,7 @@ const Portfolio = () => {
         setFunction(newText.slice(0, index));
         index++;
         if (index <= newText.length) {
-          setTimeout(typingEffect, 80);
+          setTimeout(typingEffect, 55);
         } else if (callback) {
           callback();
         }

@@ -22,7 +22,7 @@ const Contact = () => {
         setFunction(newText.slice(0, index));
         index++;
         if (index <= newText.length) {
-          setTimeout(typingEffect, 80);
+          setTimeout(typingEffect, 55);
         }
       };
       typingEffect();

@@ -23,7 +23,7 @@ const Experience = () => {
 
         index++;
         if (index <= newText.length) {
-          setTimeout(typingEffect, 80);
+          setTimeout(typingEffect, 55);
         } else if (callback) {
           callback();
         }
@@ -35,14 +35,14 @@ const Experience = () => {
       en: {
         title: "Experience",
         role: "Trainee",
-        description: `● Developed native mobile applications using React Native.\n● Integrated APIs and Web Services.\n● Tested and debugged mobile applications.`,
-        date: "Nov 2024 - Present",
+        description: `● Work on projects that optimize processes with Microsoft Power Platform.\n● Develop modern and dynamic websites with Vue.js.\n● Create interfaces and prototypes in Figma, merging design and functionality.`,
+        date: "Dez 2024 - Present",
       },
       pt: {
         title: "Experiência",
         role: "Estagiário",
-        description: `● Desenvolvo aplicativos móveis nativos com React Native.\n● Integro APIs e Web Services.\n● Faço teste e depuro aplicativos móveis.`,
-        date: "Nov 2024 - Presente",
+        description: `● Atuo em projetos que otimizam processos com Microsoft Power Platform.\n● Desenvolvo sites modernos e dinâmicos com Vue.js.\n● Crio interfaces e protótipos no Figma, unindo design e funcionalidade.`,
+        date: "Dez 2024 - Presente",
       },
     };
 
@@ -92,9 +92,9 @@ const Experience = () => {
       >
         <div className="flex justify-center md:justify-start">
           <img
-            src="../cogitt.png"
-            alt="cogitt"
-            className={`h-16 bg-back_secundary rounded-lg px-6 transform transition-transform duration-700 ease-in-out hover:scale-110 ${imageAnimationClass}`}
+            src="./public/tmh.png"
+            alt="tmh"
+            className={`h-16 p-2 bg-back_secundary rounded-lg px-6 transform transition-transform duration-700 ease-in-out hover:scale-110 ${imageAnimationClass}`}
           />
         </div>
 
