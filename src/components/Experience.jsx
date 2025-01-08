@@ -92,7 +92,7 @@ const Experience = () => {
       >
         <div className="flex justify-center md:justify-start">
           <img
-            src="./public/tmh.png"
+            src="../../public/tmh.png"
             alt="tmh"
             className={`h-16 p-2 bg-back_secundary rounded-lg px-6 transform transition-transform duration-700 ease-in-out hover:scale-110 ${imageAnimationClass}`}
           />
